@@ -8,7 +8,10 @@
 	select id,name,age,address from user
 </select>
 
+<insert id="insert"></insert>
 
+<update id="update"></update>
 
+<delete id="delete"></delete>
 
 </mapper>
