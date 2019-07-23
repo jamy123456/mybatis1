@@ -3,7 +3,9 @@
   <groupId>tk.mybatis</groupId>
   <artifactId>simple2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+  <properties>
+  	<project.build.sourceEncoding></project.build.sourceEncoding>
+  </properties>
   <dependencies> 
   
      <dependency>
