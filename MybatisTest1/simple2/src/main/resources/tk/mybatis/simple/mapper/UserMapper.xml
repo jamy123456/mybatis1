@@ -4,8 +4,20 @@
 
 <mapper namespace="tk.mybatis.simple.mapper.UserMapper">
 
-<select id="query" resultType="User">
-	select id,name,age,address from user
+<resultMap type="User" id="userMap">
+	<id property="id" column="id"></id>
+	<result property="name" column="name"/>
+	<result property="age" column="age"/>
+	<result property="address" column="address"/>
+		
+</resultMap>
+
+<select id="query" resultMap="userMap">
+	select id,
+	       name,
+	       age,
+	       address
+	from userInfo
 </select>
 
 <insert id="insert"></insert>
