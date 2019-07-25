@@ -35,8 +35,13 @@
 	<!-- 与实体类对应映射文件，这里面可以编辑我们需要的sql语句 -->
 	<mappers>
 		<!--<mapper resource="tk/mybatis/simple/mapper/UserMapper.xml"/>
-		<mapper resource="tk/mybatis/simple/mapper/RoleMapper.xml"/>
-		<package name="tk/mybatis/simple/mapper"/>-->
+		<mapper resource="tk/mybatis/simple/mapper/RoleMapper.xml"/>-->
+		<!-- 这里配置包路径, 这种配置方式会先查找 tk.mybatis.simple .mapper 包下所有的接口，循环对接口进行如下操作:
+             1. 判断接口对应的命名 空间是否己经存在，如果存在就抛出异常，不存在就继续进行接下 来的操作。
+             2. 加载接口对应的却也映射文件 ， 将接口全限定名转换为路径 ， 
+                 例如,将接口 tk.mybatis.simple.mapper.UserMapper 转换为 tk/mybatis/simple/mapper/UserMapper.xml,.xml 为后缀搜索XML资源,如果找到就解析XML。
+             3. 处理接口中的注解方法。
+                因为这里的接口和XML映射文件完全符合上面操作的第2点,因此直接配置包名就能自动扫描包下的接口和XML映射文件，省去了很多麻烦 。-->
 		<package name="tk/mybatis/simple/mapper"/>		
 	</mappers>
 </configuration>
