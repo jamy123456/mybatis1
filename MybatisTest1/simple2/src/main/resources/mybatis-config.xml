@@ -35,6 +35,7 @@
 	<!-- 与实体类对应映射文件，这里面可以编辑我们需要的sql语句 -->
 	<mappers>
 		<mapper resource="tk/mybatis/simple/mapper/UserMapper.xml"/>
+		<mapper resource="tk/mybatis/simple/mapper/RoleMapper.xml"/>		
 	</mappers>
 </configuration>
 

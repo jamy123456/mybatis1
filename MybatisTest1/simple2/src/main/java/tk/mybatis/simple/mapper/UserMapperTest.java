@@ -40,11 +40,6 @@ public class UserMapperTest {
 			logger.info("=========查询结果：{}=========",list.toString());
 		}finally {
 			sqlSession.close();
-		}
-		
-		
-		
-		
+		}		
 	}
-
 }

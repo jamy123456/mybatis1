@@ -5,18 +5,24 @@ public class User {
 	private String name;
 	private String age;
 	private String address;
+	private Role role;
 	
 	public User() {
 		super();
 	}
 
-	public User(int id, String name, String age, String address) {
+	
+
+	public User(int id, String name, String age, String address, Role role) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.address = address;
+		this.role = role;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -49,13 +55,23 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+
+	public Role getRole() {
+		return role;
+	}
+
+
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age + ", address=" + address + "]";
+		return "User [id=" + id + ", name=" + name + ", age=" + age + ", address=" + address + ", role=" + role + "]";
 	}
-	
-	
-	
 
 }

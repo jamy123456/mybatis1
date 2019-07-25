@@ -4,12 +4,15 @@
 
 <mapper namespace="tk.mybatis.simple.mapper.UserMapper">
 
-<resultMap type="User" id="userMap">
+<resultMap type="tk.mybatis.simple.model.User" id="userMap">
 	<id property="id" column="id"></id>
 	<result property="name" column="name"/>
 	<result property="age" column="age"/>
 	<result property="address" column="address"/>
-		
+</resultMap>
+
+<resultMap id="userRoleMap" extends="userMap" type="User">
+	<association property="role" columnPrefix="role_" resultMap="tk.mybatis.simple.mapper.RoleMapper.roleMap"/>
 </resultMap>
 
 <select id="query" resultMap="userMap">
@@ -18,6 +21,22 @@
 	       age,
 	       address
 	from userInfo
+</select>
+
+<select id="nestQuery" resultMap="userRoleMap">
+    select u.id,
+           u.name,
+           u.age,
+           u.address,
+           r.id role_roleid,
+           r.rolename role_rolename,
+           r.enabled role_enabled,
+           r.createby role_createby,
+           r.createtime role_createtime
+    from userinfo u
+    inner join roleinfo r 
+    on u.id = r.id
+    where u.id = #{id}
 </select>
 
 <insert id="insert"></insert>
