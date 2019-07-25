@@ -39,7 +39,9 @@ public class UserMapperTest {
 			List<User> list = sqlSession.selectList("query");
 			logger.info("=========查询结果：{}=========",list.toString());
 		}finally {
-			sqlSession.close();
+			if (null != sqlSession) {
+				sqlSession.close();
+			}
 		}		
 	}
 }

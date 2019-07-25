@@ -44,7 +44,7 @@ public class TestUserAndRole {
 			
 			Assert.assertNotNull(user);
 			
-			//Assert.assertNotNull(user.getRole());
+			Assert.assertNotNull(user.getRole());
 		} finally {
 			if (null != sqlSession) {
 				sqlSession.close();
