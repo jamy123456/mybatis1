@@ -39,10 +39,16 @@
     where u.id = #{id}
 </select>
 
-<insert id="insert"></insert>
+<insert id="insertUser">
+	insert into userinfo (name,age,address) values (#{name},#{age},#{address})
+</insert>
 
-<update id="update"></update>
+<update id="updateUser">
+	update userinfo set name=#{name} where id=#{id}
+</update>
 
-<delete id="delete"></delete>
-
+<delete id="deleteUser">
+	delete from userinfo where id=#{id}
+</delete>
+	
 </mapper>

@@ -25,7 +25,8 @@
 			<!-- 设置数据源 -->	
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+				<!-- url?号后面的编码格式一定要配置,防止插入数据库的中文乱码,例如这样:??? -->
+				<property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf8"/>
 				<property name="username" value="root"/>
 				<property name="password" value="root"/>
 			</dataSource>

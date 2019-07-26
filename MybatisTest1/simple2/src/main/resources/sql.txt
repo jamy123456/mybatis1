@@ -1,0 +1,80 @@
+重置MySQL数据库密码:
+mysqladmin -u root -password 123
+
+修改旧密码:
+mysqladmin -u root -p 123 password 123456
+
+登录MySQL数据库:
+mysql -u root -p
+
+创建数据库:
+create database (if not exists) mybatis default charset utf8 collate utf8_general_ci;
+
+创建表:
+用户表
+create table userinfo
+(
+id int(4) primary key auto_increment,
+name varchar(20) not null,
+age int(4),
+address varchar(50)
+);
+
+角色表
+create table roleinfo
+(
+ id int(4) primary key auto_increment,
+ rolename varchar(20) not null,
+ enabled boolean,
+ createby varchar(20),
+ createtime TIMESTAMP
+);
+
+
+国家表:
+create table country
+(
+id int(4) primary key auto_increment,
+countryname varchar(255) null,
+countrycode varchar(255) null
+);
+
+insert into country (countryname,countrycode) values 
+('中国','CN'),('美国','US'),('俄罗斯','RU'),('英国','GB'),('法国','FR');
+
+显示所有数据库:
+show databases;
+
+进入数据库:
+use mybatis;
+
+显示所有表:
+show tables;
+
+更改数据库编码:
+alter database <数据库名> character set utf8;
+
+更改数据库表编码:
+alter table <表名> character set utf8;
+
+更改表字段值类型或是编码:
+alter table <表名> modify <字段名> varchar(20)character set utf8;
+
+显示表结构:
+详细显示
+show full columns from userinfo;
+粗略显示
+desc userinfo;
+
+显示建表语句:
+show create table userinfo;
+例如:
+CREATE TABLE `userinfo` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `age` int(4) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8
+
+
